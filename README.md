@@ -26,5 +26,19 @@ This is useful in two common  cases:
 ### Disabled Suite - xdescribe (Video 18)
 All specs within the disabled suite will be marked as pending (not executed).
 
+## Matchers
+Official Documentation: https://jasmine.github.io/api/3.4/matchers.html
+A boolean comparison between the actual  value and the expected value.
+A matcher is responsible for reporting to Jasmine if the expectatin is true or false.
+In other words, if the spec is passing or failing.
+
+### toBe()
+Comparison with === (value and type)
+
+### toEqual()
+Deep equality comparison, it means equal keys and values (useful with Objects)
+
+**Note:** If you compare {} == {} you'll get false because they have different location in memory
+That's why you need to use toEqual to match keys and values instead of its memory location.
 
 'spec' is short for specification

@@ -26,4 +26,21 @@ describe('calculator.js', function (){
 
         expect(calculator.total).toBe(10);
     })
+
+    // toBe
+    it('should initialize with the right value', () => {
+        const calculator = new Calculator();
+        
+        expect(calculator.total).toBe(0);
+    })
+
+    // toBe vs. toEqual
+    it('has a constructor', () => {
+        const calculator = new Calculator();
+        const calculator2 = new Calculator();
+        
+        expect(calculator).toEqual(calculator2);
+        // expect(calculator).toBe(calculator2); would fail and Jastime will tell you:
+        // Tip: To check for deep equality, use .toEqual() instead of .toBe().
+    })
 });
