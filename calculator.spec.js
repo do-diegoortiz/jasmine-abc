@@ -32,6 +32,7 @@ describe('calculator.js', function (){
         const calculator = new Calculator();
         
         expect(calculator.total).toBe(0);
+        expect(calculator.total).toBeFalsy;
     })
 
     // toBe vs. toEqual
@@ -40,6 +41,9 @@ describe('calculator.js', function (){
         const calculator2 = new Calculator();
         
         expect(calculator).toEqual(calculator2);
+        expect(calculator).toBeTruthy
+        expect(calculator2).toBeTruthy
+        expect(calculator).not.toEqual(calculator2);
         // expect(calculator).toBe(calculator2); would fail and Jastime will tell you:
         // Tip: To check for deep equality, use .toEqual() instead of .toBe().
     })
