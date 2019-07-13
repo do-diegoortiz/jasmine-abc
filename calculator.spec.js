@@ -43,8 +43,32 @@ describe('calculator.js', function (){
         expect(calculator).toEqual(calculator2);
         expect(calculator).toBeTruthy
         expect(calculator2).toBeTruthy
-        expect(calculator).not.toEqual(calculator2);
+    })
+
+    it('instantiates unique object', function() {
+        const calculator1 = new Calculator();
+        const calculator2 = new Calculator();
+        
+        expect(calculator2).not.toBe(calculator1);
+        expect(calculator2).toEqual(calculator1);
         // expect(calculator).toBe(calculator2); would fail and Jastime will tell you:
         // Tip: To check for deep equality, use .toEqual() instead of .toBe().
+    });
+
+    it('has common operations', function() {
+        const calculator = new Calculator();
+
+        expect(calculator.add).toBeDefined(); // same as not.toBeUndefined()
+        expect(calculator.substract).toBeDefined();
+        expect(calculator.multiply).toBeDefined();
+        expect(calculator.divide).toBeDefined();
+    })
+
+    it('can overwrite total', function() {
+        const calculator = new Calculator();
+        // By default the total is set to 0
+        calculator.total = null;
+
+        expect(calculator.total).toBeNull();
     })
 });

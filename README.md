@@ -38,7 +38,13 @@ Comparison with === (value and type)
 ### toEqual()
 Deep equality comparison, it means equal keys and values (useful with Objects)
 
-**Note:** If you compare {} == {} you'll get false because they have different location in memory
+### toBeDefined()
+`undefined` is different than `null`. Sometimes we need to check our methods or variables are defined.
+
+### toBeNull()
+Different to `undefined`. We validate that the actual value to be exactly `null`.
+
+**Note:** If you compare `{} == {}` you'll get false because they have different location in memory
 That's why you need to use toEqual to match keys and values instead of its memory location.
 
 'spec' is short for specification
