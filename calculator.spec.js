@@ -41,8 +41,9 @@ describe('calculator.js', function (){
         const calculator2 = new Calculator();
         
         expect(calculator).toEqual(calculator2);
-        expect(calculator).toBeTruthy
-        expect(calculator2).toBeTruthy
+        expect(calculator).toBeTruthy;
+        expect(calculator2).toBeTruthy;
+        expect(calculator.constructor.name).toContain('Calc');
     })
 
     it('instantiates unique object', function() {
@@ -70,5 +71,18 @@ describe('calculator.js', function (){
         calculator.total = null;
 
         expect(calculator.total).toBeNull();
+    })
+
+    it('does not handle NaN', () => {
+        const calculator = new Calculator();
+
+        calculator.total = 20;
+        calculator.multiply('a'); // NaN
+
+        expect(calculator.total).toBeNaN();
+        
+        calculator.total = 10;
+        calculator.add('a'); // '10a'
+        expect(calculator.total).not.toBeNaN();
     })
 });

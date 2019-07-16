@@ -44,6 +44,22 @@ Deep equality comparison, it means equal keys and values (useful with Objects)
 ### toBeNull()
 Different to `undefined`. We validate that the actual value to be exactly `null`.
 
+### toContain()
+When looking for a subString of the value in your expect
+
+### toBeNaN()
+`expect` the value to be *Not a Number*. Careful to not write Nan instead of Nan.
+e.g. to understand more about NaN:
+20 + 'a' // '20a'
+20 * 'a' // NaN
+20 * '' // 0
+NaN === NaN // false
+Number.isNaN('') // false
+Number.isNan(NaN) // true
+
+
+
+
 **Note:** If you compare `{} == {}` you'll get false because they have different location in memory
 That's why you need to use toEqual to match keys and values instead of its memory location.
 
