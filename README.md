@@ -57,6 +57,19 @@ NaN === NaN // false
 Number.isNaN('') // false
 Number.isNan(NaN) // true
 
+### toThrow()
+Be careful to wrap the expected result inside a function to not break the expect before evaluation.
+
+### toThrowError()
+It can receive two parameters, expected and message
+
+### toMatch()
+For regular expresions, remember to wrap de RegEx inside /*RegEx*/ or plain text for typeOf
+
+## Asymetric Matchers
+
+### toEqual(jasmine.anything())
+It only doesn't work for with `null` and `unedfined`
 
 
 

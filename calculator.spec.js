@@ -84,5 +84,28 @@ describe('calculator.js', function (){
         calculator.total = 10;
         calculator.add('a'); // '10a'
         expect(calculator.total).not.toBeNaN();
+    });
+
+    it('handles divide by zero', () => {
+        const calculator = new Calculator();
+        
+        // This expect breaks the expectation before being avaluated
+        // expect(calculator.divide(0)).toThrow();
+        // So we need to wrap it inside a function
+        expect(() => {calculator.divide(0)}).toThrow();
+        expect(() => {calculator.divide(0)}).toThrowError(Error);
+        expect(() => {calculator.divide(0)}).toThrowError(Error, "Can't be zero");
+    });
+
+    it('returns total', () => {
+        const calculator = new Calculator();
+        calculator.total = 50;
+
+        expect(calculator.add(18)).toBe(68);
+        expect(calculator.total).toMatch(/-?\d+/);
+        expect(typeof calculator.total).toMatch('number');
+        // asymetric matchers!
+        // not equal in each side!
+        expect(calculator.total).toEqual(jasmine.anything());
     })
 });
