@@ -69,9 +69,14 @@ For regular expresions, remember to wrap de RegEx inside /*RegEx*/ or plain text
 ## Asymetric Matchers
 
 ### toEqual(jasmine.anything())
-It only doesn't work for with `null` and `unedfined`
+It only doesn't work with `null` and `unedfined`
 
+## Custom Matchers
+You can create your own matcher. You have to create a file with the structure shown in custom-matchers.js.
+Then you define a compare function where you decide how it success and what message to show when it fails.
 
+The matcher needs to be registered, so we need to import the file as a script in the html and import it in the suite
+using structure `jasmine.addMatchers(myMatcherName);`
 
 **Note:** If you compare `{} == {}` you'll get false because they have different location in memory
 That's why you need to use toEqual to match keys and values instead of its memory location.

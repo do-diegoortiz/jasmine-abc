@@ -35,17 +35,21 @@ describe('calculator.js', function (){
         expect(calculator.total).toBeFalsy;
     })
 
-    // toBe vs. toEqual
+    
     it('has a constructor', () => {
+        jasmine.addMatchers(customMatchers);
+
         const calculator = new Calculator();
         const calculator2 = new Calculator();
         
+        expect(calculator).toBeCalculator();
         expect(calculator).toEqual(calculator2);
         expect(calculator).toBeTruthy;
         expect(calculator2).toBeTruthy;
         expect(calculator.constructor.name).toContain('Calc');
     })
 
+    // toBe vs. toEqual
     it('instantiates unique object', function() {
         const calculator1 = new Calculator();
         const calculator2 = new Calculator();
@@ -107,5 +111,9 @@ describe('calculator.js', function (){
         // asymetric matchers!
         // not equal in each side!
         expect(calculator.total).toEqual(jasmine.anything());
+
+        // Third party matchers
+        // That could work adding libraries like:https://github.com/JamieMason/Jasmine-Matchers
+        // expect(calculator.total).toBeNumber();
     })
 });
