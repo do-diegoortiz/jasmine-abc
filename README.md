@@ -82,3 +82,17 @@ using structure `jasmine.addMatchers(myMatcherName);`
 That's why you need to use toEqual to match keys and values instead of its memory location.
 
 'spec' is short for specification
+
+## Organizing Specs
+We use `describe` to group our specs, it's also called a **suite**.
+We should nest the suites by methods
+
+###Setup
+Where you place prerequisites for your specs. It executes **before** specs are run:
+beforeEach(): Executed before each spec (`it`)
+beforeAll(): Executed once before each suite (`describe`) or before all the specs in which it is called.
+
+###Teardown
+Clean up steps for your specs. It executes **after** specs are run:
+afterEach(): Executed after each spec (`it`)
+afterAll(): Executed once after each suite (`describe`) or after all the specs in which it is called.
