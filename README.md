@@ -96,3 +96,6 @@ beforeAll(): Executed once before each suite (`describe`) or before all the spec
 Clean up steps for your specs. It executes **after** specs are run:
 afterEach(): Executed after each spec (`it`)
 afterAll(): Executed once after each suite (`describe`) or after all the specs in which it is called.
+
+###xit
+To explicitly say the the spec is disabled, **temporarily disabled** or a pending spec. The spec won't be executed
