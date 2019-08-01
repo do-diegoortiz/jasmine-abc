@@ -23,22 +23,22 @@ describe('index.js', () => {
         });
     });
     describe('updateResult()', () => {
-        let element;
         beforeAll(() => {
-            element = document.createElement('div');
+            const element = document.createElement('div');
             element.setAttribute('id', 'result')
             document.body.appendChild(element);
+
+            // A way to use element everywhere in the suite as a state without defining the variable at the beggining
+            this.element = element;
         });
 
         afterAll(() => {
-            const element = document.getElementById('result');
-
-            document.body.removeChild(element);
+            document.body.removeChild(this.element);
         });
         it('adds  result to DOM element', () => {
             updateResult('5');
 
-            expect(element.innerText).toBe('5');
+            expect(this.element.innerText).toBe('5');
         });
     });
 });
