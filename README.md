@@ -99,3 +99,20 @@ afterAll(): Executed once after each suite (`describe`) or after all the specs i
 
 ###xit
 To explicitly say the the spec is disabled, **temporarily disabled** or a pending spec. The spec won't be executed
+
+## Spying On Your Code
+Sometimes there are methods that are called in our test, but we are not testing them.
+Spies create test doubles and help us isolate dependencies for true unit testing!
+A test double is an object that can stand in for real object in a test, similar to a stunt in a movie.
+
+### Spies
+A spy can stub any function and tracks calls to it and all arguments.
+A spy only exists in the `describe` and `it` where they were defined.
+
+### Spy Matchers
+toHaveBeenCalled: It only evaluates the methods was called, nothing else.
+toHaveBeenCalledWith
+toHaveBeenCalledTimes
+
+### spyOn()
+Receives two parameters, the object that contains the method we are spying on and a string with the name of the method()

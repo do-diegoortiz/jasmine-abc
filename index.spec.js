@@ -1,7 +1,32 @@
 describe('index.js', () => {
     describe('calculate()', () => {
-        xit('validates expression', () => {
+        it('validates expression when the first number is invalid', () => {
+            // Tracks the calls to the method and nothing else.
+            spyOn(window, 'updateResult');
 
+            calculate('a+3');
+
+            expect(window.updateResult).toHaveBeenCalled();
+            expect(window.updateResult).toHaveBeenCalledWith('Operation not valid');
+            expect(window.updateResult).toHaveBeenCalledTimes(1);
+        });
+        it('validates expression when the second number is invalid', () => {
+            spyOn(window, 'updateResult');
+
+            calculate('3+x');
+
+            expect(window.updateResult).toHaveBeenCalled();
+            expect(window.updateResult).toHaveBeenCalledWith('Operation not valid');
+            expect(window.updateResult).toHaveBeenCalledTimes(1);
+        });
+        it('validates expression when the operator is invalid', () => {
+            spyOn(window, 'updateResult');
+
+            calculate('9%3');
+
+            expect(window.updateResult).toHaveBeenCalled();
+            expect(window.updateResult).toHaveBeenCalledWith('Operation not valid');
+            expect(window.updateResult).toHaveBeenCalledTimes(1);
         });
         xit('calls add', () => {
 
