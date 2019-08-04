@@ -28,17 +28,39 @@ describe('index.js', () => {
             expect(window.updateResult).toHaveBeenCalledWith('Operation not valid');
             expect(window.updateResult).toHaveBeenCalledTimes(1);
         });
-        xit('calls add', () => {
+        it('calls add', () => {
+            const spy = spyOn(Calculator.prototype, 'add')
 
+            calculate('2+4')
+
+            expect(spy).toHaveBeenCalledTimes(2);
+            expect(spy).toHaveBeenCalledWith(2);
+            expect(spy).toHaveBeenCalledWith(4);
         });
-        xit('calls substract', () => {
+        it('calls substract', () => {
+            const spy = spyOn(Calculator.prototype, 'substract')
 
+            calculate('7-5')
+
+            expect(spy).toHaveBeenCalledTimes(1);
+            expect(spy).toHaveBeenCalledWith(5);
         });
-        xit('calls multiply', () => {
+        it('calls multiply', () => {
+            const spy = spyOn(Calculator.prototype, 'multiply')
 
+            calculate('6*9')
+
+            expect(spy).toHaveBeenCalledTimes(1);
+            expect(spy).not.toHaveBeenCalledWith(6);
+            expect(spy).toHaveBeenCalledWith(9);
         });
-        xit('calls divide', () => {
+        it('calls divide', () => {
+            const spy = spyOn(Calculator.prototype, 'divide')
 
+            calculate('96/8')
+
+            expect(spy).toHaveBeenCalled();
+            expect(spy).toHaveBeenCalledWith(8);
         });
         xit('validates operation', () => {
 
