@@ -30,3 +30,9 @@ body {
     color: black;
     font-size: 22px;
 }
+
+.version {
+    margin-top: 10px;
+    color: white;
+    text-align: center;
+}

@@ -16,5 +16,9 @@ class Calculator {
             throw new Error("Can't be zero");
         return this.total /= number;
     }
+
+    get version() {
+        return '0.1';
+    }
 }
 

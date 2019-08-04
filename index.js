@@ -39,5 +39,12 @@ function updateResult(result) {
     if(element) {
         element.innerHTML= result;
     }
-    
+}
+
+function showVersion() {
+    const calculator = new Calculator();
+
+    const element = document.getElementById('version');
+
+    element.innerText = calculator.version;
 }
