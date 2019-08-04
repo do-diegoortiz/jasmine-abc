@@ -129,3 +129,7 @@ It recives a function as an argument, it should have the same signature like the
 
 ### returnValue()
 If you want an specific value to be return. Very similar to callFake() method but shorter
+
+### spyOnProperty()
+Useful when we want to test the getters and setters from a property.
+It receives three arguments, the last one is optional and by default is a `get`

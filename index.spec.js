@@ -143,15 +143,15 @@ describe('index.js', () => {
 
     describe('showVersion()', () => {
         it('calls calcultor.version', () => {
-            const spy = spyOn(document, 'getElementById').and.returnValue({
+            // If we don't add this first spy we'll get a: Cannot set property 'innerText' of null
+            spyOn(document, 'getElementById').and.returnValue({
                 innerText: null
             })
-            spyOnProperty(Calculator.prototype, 'version', 'get')
+            const spy = spyOnProperty(Calculator.prototype, 'version', 'get')
 
             showVersion();
 
             expect(spy).toHaveBeenCalled();
-            expect(Object.getOwnPropertyDescriptor(Calculator.prototype, 'version').get).toHaveBeenCalled();
         });
     });
 });
