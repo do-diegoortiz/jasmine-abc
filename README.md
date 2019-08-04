@@ -121,3 +121,10 @@ Receives two parameters, the object that contains the method we are spying on an
 You rarely need to use this method, but in case you need it, it's going to call the real implementation.
 You know the spy creates a double, so the real implementation is not happening there, sometimes you
 could need the real implementation to happen, that's when you use `and.callThrough()`
+
+### callFake()
+Rare to use too. It allows to call a specific custom implementation when spying on a function.
+It recives a function as an argument, it should have the same signature like the one you're faking.
+
+### returnValue()
+If you want an specific value to be return. Very similar to callFake() method but shorter
