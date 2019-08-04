@@ -140,4 +140,18 @@ describe('index.js', () => {
             expect(this.element.innerText).toBe('5');
         });
     });
+
+    describe('showVersion()', () => {
+        it('calls calcultor.version', () => {
+            const spy = spyOn(document, 'getElementById').and.returnValue({
+                innerText: null
+            })
+            spyOnProperty(Calculator.prototype, 'version', 'get')
+
+            showVersion();
+
+            expect(spy).toHaveBeenCalled();
+            expect(Object.getOwnPropertyDescriptor(Calculator.prototype, 'version').get).toHaveBeenCalled();
+        });
+    });
 });
