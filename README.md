@@ -108,6 +108,7 @@ A test double is an object that can stand in for real object in a test, similar 
 ### Spies
 A spy can stub any function and tracks calls to it and all arguments.
 A spy only exists in the `describe` and `it` where they were defined.
+**Note:** We can NOT spy on getters and setters in Jasmine.
 
 ### Spy Matchers
 toHaveBeenCalled: It only evaluates the methods was called, nothing else.

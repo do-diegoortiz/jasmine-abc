@@ -102,6 +102,24 @@ describe('index.js', () => {
             expect(window.updateResult).toHaveBeenCalled();
             expect(window.updateResult).toHaveBeenCalledWith('Whatever you want');
         });
+
+        it('calls updateResult (example using and.returnValues)', () => {
+            spyOn(window, 'updateResult')
+            spyOn(Calculator.prototype, 'add').and.returnValues(null, 'an add result')
+
+            calculate('8+9')
+
+            expect(window.updateResult).toHaveBeenCalled();
+            expect(window.updateResult).toHaveBeenCalledWith('an add result');
+        });
+
+        it('does not handle errors (so we force it with throwError())', () => {
+            spyOn(Calculator.prototype, 'multiply').and.throwError('some error');
+
+            expect(() => { calculate('6*7') }).toThrow();
+            expect(() => { calculate('2*3') }).toThrowError(Error);
+            expect(() => { calculate('1*0') }).toThrowError(Error, 'some error');
+        });
     });
     describe('updateResult()', () => {
         beforeAll(() => {
