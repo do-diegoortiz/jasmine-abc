@@ -116,3 +116,8 @@ toHaveBeenCalledTimes
 
 ### spyOn()
 Receives two parameters, the object that contains the method we are spying on and a string with the name of the method()
+
+### callThough()
+You rarely need to use this method, but in case you need it, it's going to call the real implementation.
+You know the spy creates a double, so the real implementation is not happening there, sometimes you
+could need the real implementation to happen, that's when you use `and.callThrough()`

@@ -62,11 +62,16 @@ describe('index.js', () => {
             expect(spy).toHaveBeenCalled();
             expect(spy).toHaveBeenCalledWith(8);
         });
-        xit('validates operation', () => {
+        it('calls updateResult (example using and.callThrough)', () => {
+            spyOn(window, 'updateResult')
+            // This spec is going to fail if you don't include the .and.callThrough()
+            // Because if not, the multiply will never happen in real life, it would return undefined
+            spyOn(Calculator.prototype, 'multiply').and.callThrough()
 
-        });
-        xit('calls updateResult', () => {
+            calculate('11*12')
 
+            expect(window.updateResult).toHaveBeenCalled();
+            expect(window.updateResult).toHaveBeenCalledWith(132);
         });
     });
     describe('updateResult()', () => {
