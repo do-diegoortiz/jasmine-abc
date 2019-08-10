@@ -137,3 +137,16 @@ It receives three arguments, the last one is optional and by default is a `get`
 ## Testing Asynchronous Code
 Useful to work with promises. For this you should use the `done` callback in the describe, and call it
 at the end of your spec. Also you should mock the request, since we are testing the async method, not the request.
+
+## Continuous Integration
+In order to not include each file separately in out spec-runner.html
+npm will allow us to get the dependencies from lib folder in our proyect.
+
+1) Delete the lib folder
+2) Delete de spec-matchers.js file
+3) Install node if you don't have it already
+4) Create a package.json file using the command `npm init` in your directory (all default answers are ok)
+5) Install karma with command `npm install karma --save-dev`
+6) Install jasmine-core and karma-jasmine `npm i jasmine-core karma-jasmine --save-dev` 
+7) Install karma-jasmine-matchers `npm i karma-jasmine-matchers --save-dev` 
+8) Create karma.config.js and set it up, karma looks for it automatically.
