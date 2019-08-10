@@ -54,13 +54,44 @@ describe('calculator.js', function (){
         });
     });
 
+    describe('get version', () => {
+        it('fetches version from external source USING THEN', (done) => {
+            // calculator.version is gonna return a Promise, that's why we can use the then() method
+            // So the expectation must be inside the promise handler.
+
+            // But we also need to spy and mock the response, since we have real unit testing
+            // we don't want real calls to the url
+
+            spyOn(window, 'fetch').and.returnValue(Promise.resolve(
+                new Response('{ "version": "0.1" }')
+            ))
+
+            calculator.version.then(version => {
+                expect(version).toBe('0.1');
+
+                done();
+            })
+        });
+
+        it('fetches version from external source USING ASYNC-AWAIT ES2017', async (done) => {
+            spyOn(window, 'fetch').and.returnValue(Promise.resolve(
+                new Response('{ "version": "0.1" }')
+            ))
+
+            const version = await calculator.version
+
+            expect(window.fetch).toHaveBeenCalled();
+            expect(version).toBe('0.1');
+            done();
+        });
+    });
+
     // toBe
     it('should initialize with the right value', () => {
         expect(calculator.total).toBe(0);
         expect(calculator.total).toBeFalsy;
     })
 
-    
     it('has a constructor', () => {
         jasmine.addMatchers(customMatchers);
         

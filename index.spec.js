@@ -147,10 +147,14 @@ describe('index.js', () => {
             spyOn(document, 'getElementById').and.returnValue({
                 innerText: null
             })
-            const spy = spyOnProperty(Calculator.prototype, 'version', 'get')
+            const spy = spyOnProperty(Calculator.prototype, 'version', 'get').and.returnValue(
+                // We don't care about what does it resolve with
+                Promise.resolve()
+            )
 
             showVersion();
 
+            
             expect(spy).toHaveBeenCalled();
         });
     });

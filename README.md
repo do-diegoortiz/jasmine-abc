@@ -133,3 +133,7 @@ If you want an specific value to be return. Very similar to callFake() method bu
 ### spyOnProperty()
 Useful when we want to test the getters and setters from a property.
 It receives three arguments, the last one is optional and by default is a `get`
+
+## Testing Asynchronous Code
+Useful to work with promises. For this you should use the `done` callback in the describe, and call it
+at the end of your spec. Also you should mock the request, since we are testing the async method, not the request.
