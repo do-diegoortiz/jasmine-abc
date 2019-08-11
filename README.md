@@ -150,3 +150,15 @@ npm will allow us to get the dependencies from lib folder in our proyect.
 6) Install jasmine-core and karma-jasmine `npm i jasmine-core karma-jasmine --save-dev` 
 7) Install karma-jasmine-matchers `npm i karma-jasmine-matchers --save-dev` 
 8) Create karma.config.js and set it up, karma looks for it automatically.
+
+This first part will cover the part of a basic karma configuration to run all your tests automatically without the need
+to register one by one.
+
+We will need a headless browser, it is included in puppeteer package
+9) Install puppeteer `npm i puppeteer --save-dev`
+10) Add ChromeHeadless to karma config browsers array.
+11) Install karma-chrome-launcher `npm i karma-chrome-launcher --save-dev` to integrate to chrome headless browser
+12) Add karma-chrome-launcher to your karma.conf plugins
+13) Add `process.env.CHROME_BIN = require('puppeteer').executablePath();` before module in karma config
+
+Now the test are running in the console without the need to open a browser
