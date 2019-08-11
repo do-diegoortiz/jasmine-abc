@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/do-diegoortiz/jasmine-abc.svg?style=svg)](https://circleci.com/gh/do-diegoortiz/jasmine-abc)
+
 ## Global Methods
 Methods that we don't need to import in order to use them.
 
