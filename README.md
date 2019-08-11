@@ -161,4 +161,15 @@ We will need a headless browser, it is included in puppeteer package
 12) Add karma-chrome-launcher to your karma.conf plugins
 13) Add `process.env.CHROME_BIN = require('puppeteer').executablePath();` before module in karma config
 
-Now the test are running in the console without the need to open a browser
+Now the test are running in the console without the need to open a browser.
+What if want to see reports of the tests. Because we want to know how much % of our code is being tested:
+
+14) Install istanbul  `npm i -D istanbul`. Making sure our lines are visited helping to generate the report
+15) Install karma-cli  `npm i -D karma-cli`. Needed for generate coverage reports.
+16) Install karma-coverage  `npm i -D karma-coverage`. Plugin
+17) Add it to the plugins in karma configuration.
+18) Add a second reporter after dots, called `coverage`
+19) Add a new key called coverageReporter to tell where the report is going to be saved
+20) Add preprocessors key to config istanbul library on the js files.
+
+Now in the coverage>html folder, you have a index.html that you can open to see the full report.
